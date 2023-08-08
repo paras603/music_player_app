@@ -73,7 +73,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:outlineAmbientShadowColor="@color/black"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/songTitle" />
@@ -92,47 +91,42 @@
 
     <Button
         android:id="@+id/rewindBtn"
-        android:layout_width="0dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="36dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="43dp"
         android:background="@drawable/fast_rewind"
-        app:layout_constraintEnd_toStartOf="@+id/button9"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <Button
-        android:id="@+id/button9"
-        android:layout_width="0dp"
+        android:id="@+id/playBtn"
+        android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="43dp"
         android:background="@drawable/play"
-        app:layout_constraintEnd_toStartOf="@+id/pauseBtn"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toEndOf="@+id/rewindBtn"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <Button
         android:id="@+id/pauseBtn"
-        android:layout_width="0dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="54dp"
+        android:layout_marginEnd="44dp"
         android:background="@drawable/pause"
         app:layout_constraintEnd_toStartOf="@+id/forwardBtn"
-        app:layout_constraintStart_toEndOf="@+id/button9"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <Button
         android:id="@+id/forwardBtn"
-        android:layout_width="0dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="35dp"
         android:background="@drawable/fast_forward"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/pauseBtn"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -140,6 +134,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="605dp" />
+        app:layout_constraintGuide_end="126dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="206dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
