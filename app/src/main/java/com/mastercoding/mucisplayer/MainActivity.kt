@@ -2,13 +2,16 @@ package com.mastercoding.mucisplayer
 
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
+import android.provider.MediaStore.Audio.Media
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import java.util.concurrent.TimeUnit
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         seek_bar = findViewById<SeekBar>(R.id.seekBar)
 
         //Media Player
-        var mediaPlayer = MediaPlayer.create(this,
+        mediaPlayer = MediaPlayer.create(this,
                                         R.raw.manka_kura)
 
         seek_bar.isClickable = false
@@ -77,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         forward_btn.setOnClickListener(){
             var temp = startTime
             if ((temp + forwardTime) <= finalTime){
-                startTime = startTime + forwardTime
+                startTime += forwardTime
                 mediaPlayer.seekTo(startTime.toInt())
             }else{
                 Toast.makeText(this,
@@ -89,7 +92,7 @@ class MainActivity : AppCompatActivity() {
             var temp = startTime.toInt()
 
             if ((temp - backwardTime) >0){
-                startTime = startTime - backwardTime
+                startTime -= backwardTime
                 mediaPlayer.seekTo(startTime.toInt())
             }else{
                 Toast.makeText(this,
@@ -109,18 +112,12 @@ class MainActivity : AppCompatActivity() {
                         "%d min , %d sec",
                         TimeUnit.MILLISECONDS.toMinutes(startTime.toLong()),
                         TimeUnit.MILLISECONDS.toSeconds(
-                            startTime.toLong()
-                                    - TimeUnit.MINUTES.toSeconds(
-                                TimeUnit.MILLISECONDS.toMinutes(
-                                    startTime.toLong()
-                                )
-                            ))
+                            startTime.toLong() - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(startTime.toLong())))
                     )
 
 
             seek_bar.progress = startTime.toInt()
             handler.postDelayed(this, 100)
-
         }
     }
 

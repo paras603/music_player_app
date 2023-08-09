@@ -105,6 +105,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/play"
+        android:backgroundTint="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toEndOf="@+id/rewindBtn"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
@@ -117,6 +118,7 @@
         android:layout_marginEnd="44dp"
         android:background="@drawable/pause"
         app:layout_constraintEnd_toStartOf="@+id/forwardBtn"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
